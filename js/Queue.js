@@ -36,6 +36,6 @@ class Queue {
     }
 
     getSize() {
-        return array.length;
+        return this.array.length;
     }
 }
