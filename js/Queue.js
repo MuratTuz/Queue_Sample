@@ -13,12 +13,14 @@ class Queue {
     }
 
     isEmpty() {
-        return array.length > 0;
+        return this.array.length > 0;
     }
 
     enQueue(element){
-        if (this.array.length < this.capacity) {
-            this.array.unshift(element);
+        let index = this.array.length;
+
+        if (index < this.capacity) {
+            this.array.unshift({index, element});
             return 'OK';
         } 
         return 'NOT';       
