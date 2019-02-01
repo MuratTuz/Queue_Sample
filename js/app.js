@@ -9,7 +9,6 @@ $(function(){
     let viewManager = new ViewManager();
     
     $("#enQueueBtn").click(() => {
-
         if (queue.isFull()) {
             viewManager.showQueueFull();
         } else {
@@ -17,7 +16,6 @@ $(function(){
            queue.enQueue(valueObject.content);
            animationManager.animeEnqueueBtn(valueObject.domElement);
         }
-
     });
         
             
@@ -25,23 +23,20 @@ $(function(){
         if (queue.isEmpty()) {
             viewManager.showQueueEmpty(true);
         } else {
-            let frontOfQueue = viewManager.findDomObject();     
+            let frontOfQueue = viewManager.findDomObject('front');     
             animationManager.animeFrontBtn(frontOfQueue);
         }
     }); 
     
     
     $('#deQueueBtn').click(() => {
-
         if (queue.isEmpty()) {
             viewManager.showQueueEmpty(true);
         } else {
-            let lastElem = viewManager.findDomObject();
+            let lastElem = viewManager.findDomObject('deQueue');
             animationManager.animeDequeueBtn(lastElem);  
             queue.deQueue();      
         }
-
-
     });
 
     $('#isEmptyBtn').click(() => {
@@ -52,8 +47,6 @@ $(function(){
         viewManager.showQueueSize(queue.getSize());
     });
 
-
-
-                
+               
     
 })
